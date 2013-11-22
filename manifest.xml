@@ -1,0 +1,19 @@
+<package>
+  <description brief="Bundle with general definitions for AUVs">
+  This bundle contains the syskit models and base scripts that describe rock-based
+  </description>
+  <author>Sylvain Joyeux/sylvain.joyeux@dfki.de</author>
+  <license></license>
+  <url>http://</url>
+  <logo>http://</logo>
+
+  <depend package="bundles/rock" />
+  <!--
+   To add any dependencies use the depend tag
+  <depend package="dummy-dependency-0" />
+	...
+  <depend package="dummy-dependency-n-1" />
+  <depend package="dummy-dependency-n" />
+  -->
+  <depend package="bundles/rock" />
+</package>

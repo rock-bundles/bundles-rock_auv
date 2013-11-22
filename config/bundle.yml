@@ -1,0 +1,7 @@
+# Bundle-specific configuration
+bundle:
+    # List of bundles we depend on
+    dependencies:
+        - rock
+
+        
