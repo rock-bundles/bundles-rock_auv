@@ -1,3 +1,9 @@
+# Bundle-specific configuration
+bundle:
+    # List of bundles we depend on
+    dependencies:
+        - rock
+
 # Logging configuration
 log:
   # Where log files go
