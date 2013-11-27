@@ -76,6 +76,22 @@ module RockAUV
                 encoded == 0
             end
 
+            def |(a)
+                self.class.from_raw(encoded | a.encoded)
+            end
+
+            def &(a)
+                self.class.from_raw(encoded & a.encoded)
+            end
+
+            def ==(value)
+                if value.respond_to?(:encoded)
+                    encoded == value.encoded
+                else
+                    encoded == value
+                end
+            end
+
             def to_s
                 SHIFTS.map { |name, shift| name.to_s if (encoded & (1 << shift) != 0) }.
                     compact.join(",")

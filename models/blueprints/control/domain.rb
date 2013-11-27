@@ -65,10 +65,30 @@ module RockAUV
             # @raise ArgumentError if self and domain control the same
             #   reference/quantity/axis
             def |(domain)
-                if (domain.encoded & self.encoded) != 0
+                if (domain.encoded & encoded) != 0
                     raise ArgumentError, "cannot merge #{self} with #{domain}: some parameters are part of both domains"
                 end
-                Domain.from_raw(@encoded | domain.encoded)
+                Domain.from_raw(encoded | domain.encoded)
+            end
+
+            # Enumerates all parts of the control domain that are actually
+            # controlled
+            #
+            # @yieldparam [Symbol] reference the reference part
+            #   (:world,:aligned,:body)
+            # @yieldparam [Symbol] quantity the quantity part
+            #   (:pos,:vel,:effort)
+            # @yieldparam [Axis] axis the axis being controlled
+            # @return [void]
+            def each
+                return enum_for(__method__) if !block_given?
+                SHIFTS.each_key do |reference, quantity|
+                    axis = get(reference, quantity)
+                    if !axis.empty?
+                        yield(reference, quantity, axis)
+                    end
+                end
+                nil
             end
 
             def hash; encoded.hash end
