@@ -36,7 +36,7 @@ end
 require 'models/blueprints/control/axis'
 require 'models/blueprints/control/domain'
 require 'models/blueprints/control/data_service'
-require 'models/blueprints/control/constant'
 using_task_library 'auv_control'
 require 'models/blueprints/control/netgen'
 require 'models/blueprints/control/cascade'
+require 'models/blueprints/control/constant'

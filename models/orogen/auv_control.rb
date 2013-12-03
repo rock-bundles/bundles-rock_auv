@@ -10,3 +10,14 @@ class AuvControl::Base
         end
     end
 end
+
+class AuvControl::ConstantCommand
+    argument :cmd, :default => nil
+
+    def configure
+        super
+        if cmd
+            orocos_task.cmd = cmd
+        end
+    end
+end
