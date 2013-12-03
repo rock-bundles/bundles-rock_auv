@@ -4,7 +4,7 @@ class AuvControl::Base
         srv_sets.each do |reference, quantities|
             quantities.each do |quantity, srv|
                 dynamic_service srv, :as => "#{prefix}_#{reference}_#{quantity}" do
-                    provides srv, :as => name, "cmd_in_#{reference}_#{quantity}" => "cmd_in_#{reference}_#{quantity}"
+                    provides srv, :as => name, "cmd_in_#{reference}_#{quantity}" => "cmd_in_#{name}"
                 end
             end
         end
