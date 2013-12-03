@@ -1,5 +1,10 @@
 module RockAUV
+    extend Logger::Root("RockAUV", Logger::DEBUG)
+    extend Logger::Forward
+
     module Control
+        extend Logger::Hierarchy
+
         # Pipeline follower:
         #   - pipeline following itself is providing Yaw(aligned position) and Y(aligned position)
         #   - constant X(aligned velocity)
